@@ -139,9 +139,76 @@ async function fetchNews(category, isBackgroundRefresh = false) {
         }
 
     } catch (error) {
-        console.error("Fetch Error:", error);
-        showError(error.message);
+        console.warn("API Error (likely CORS/Free Plan limit on Vercel). Switching to Demo Mode.", error);
+        // Instead of showing error, load Mock Data so the site looks good on Vercel
+        loadMockNews(category);
     }
+}
+
+// --- Mock Data Fallback (For Vercel/Production Demo) ---
+function loadMockNews(category) {
+    const mockArticles = [
+        {
+            source: { name: "The Tech Journal" },
+            title: "Quantum Computing: The Next Leap in Processing Power?",
+            description: "Scientists achieve a new breakthrough in stable qubits, potentially paving the way for commercially viable quantum computers within the decade.",
+            publishedAt: new Date().toISOString(),
+            url: "#",
+            urlToImage: "https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&q=80&w=1000"
+        },
+        {
+            source: { name: "Global Finance" },
+            title: "Markets Rally as Inflation Shows Signs of Cooling",
+            description: "Major indices hit record highs today as the latest economic reports suggest that global inflation rates are finally stabilizing after months of volatility.",
+            publishedAt: new Date().toISOString(),
+            url: "#",
+            urlToImage: "https://images.unsplash.com/photo-1611974765270-ca6e1128dc51?auto=format&fit=crop&q=80&w=1000"
+        },
+        {
+            source: { name: "Sports Weekly" },
+            title: "Underdog Team Secures Championship in Stunning Upset",
+            description: "In a match that will be remembered for decades, the city's beloved underdogs defeated the defending champions 3-2 in overtime.",
+            publishedAt: new Date().toISOString(),
+            url: "#",
+            urlToImage: "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&q=80&w=1000"
+        },
+        {
+            source: { name: "Cinema Daily" },
+            title: "The Golden Age of Streaming: What's Next for Hollywood?",
+            description: "As box office numbers fluctuate, major studios are rethinking their release strategies. We analyze the shift towards digital-first premieres.",
+            publishedAt: new Date(Date.now() - 86400000).toISOString(),
+            url: "#",
+            urlToImage: "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=1000"
+        },
+        {
+            source: { name: "Future Science" },
+            title: "Mars Colony: SpaceX Reveals New Timeline for Habitats",
+            description: "Elon Musk shares updated plans for the Starship program, aiming for uncrewed cargo missions to the Red Planet within the next four years.",
+            publishedAt: new Date(Date.now() - 172800000).toISOString(),
+            url: "#",
+            urlToImage: "https://images.unsplash.com/photo-1541873676-a18131494184?auto=format&fit=crop&q=80&w=1000"
+        },
+        {
+            source: { name: "Health Today" },
+            title: "The Mediterranean Diet: Still the King of Nutrition?",
+            description: "A comprehensive new study follows 10,000 participants over 20 years, confirming the long-term cognitive and cardiovascular benefits of olive oil and nuts.",
+            publishedAt: new Date(Date.now() - 250000000).toISOString(),
+            url: "#",
+            urlToImage: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?auto=format&fit=crop&q=80&w=1000"
+        }
+    ];
+
+    // Simulate network delay for realism
+    setTimeout(() => {
+        renderArticles(mockArticles);
+        // Add a small indicator that we are in demo mode
+        const statusEl = document.getElementById("live-indicator");
+        if (statusEl) {
+            statusEl.textContent = "● DEMO MODE";
+            statusEl.style.color = "orange";
+            statusEl.title = "Showing sample data because NewsAPI free plan doesn't work on Vercel.";
+        }
+    }, 500);
 }
 
 // --- Rendering ---
