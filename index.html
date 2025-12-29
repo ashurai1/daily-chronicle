@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="The Daily Chronicle - A Premium Digital Article Book. Real-time news with a classic editorial feel.">
+    <title>The Daily Chronicle</title>
+
+    <!-- Google Fonts: Playfair Display (Headlines) & Lora (Body) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:wght@400;600;700;900&display=swap"
+        rel="stylesheet">
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Favicon -->
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📰</text></svg>">
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header class="newspaper-header" id="header">
+        <div class="header-top">
+            <span class="date-display" id="current-date">Thinking...</span>
+            <div class="theme-toggle-container">
+                <button id="theme-toggle" class="theme-btn" aria-label="Toggle Dark Mode">
+                    <span class="icon sun">☀</span>
+                    <span class="icon moon">☾</span>
+                </button>
+            </div>
+        </div>
+
+        <div class="header-main">
+            <h1 class="newspaper-name">The Daily Chronicle</h1>
+            <p class="newspaper-tagline">Est. 2025 • Truth & Clarity • Global Edition</p>
+        </div>
+
+        <nav class="category-nav">
+            <ul class="nav-links">
+                <li><button class="nav-item active" data-category="general">Front Page</button></li>
+                <li><button class="nav-item" data-category="technology">Technology</button></li>
+                <li><button class="nav-item" data-category="business">Business</button></li>
+                <li><button class="nav-item" data-category="sports">Sports</button></li>
+                <li><button class="nav-item" data-category="entertainment">Entertainment</button></li>
+                <li><button class="nav-item" data-category="science">Science</button></li>
+            </ul>
+        </nav>
+
+        <div class="header-border-double"></div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-content">
+
+        <!-- Status Bar (Loading / Updates) -->
+        <div class="status-bar container">
+            <span id="last-updated">Latest Dispatch: Syncing...</span>
+            <span class="live-badge" id="live-indicator">● LIVE WIRE</span>
+        </div>
+
+        <!-- News Container -->
+        <div class="container" id="news-container">
+            <!-- Loading State (Initial) -->
+            <div class="loading-state">
+                <div class="spinner"></div>
+                <p>Fetching the latest edition...</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="newspaper-footer">
+        <div class="footer-border"></div>
+        <div class="container footer-content">
+            <p>&copy; 2025 Ashwani Rai. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/app.js"></script>
+</body>
+
+</html>
