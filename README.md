@@ -1,4 +1,5 @@
-[![Live Demo](https://raw.githubusercontent.com/your-username/your-repo/main/assets/live-demo.svg)](https://daily-chronicle-navy.vercel.app/)
+[![Live Website](https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif)](https://daily-chronicle-navy.vercel.app/)
+
 
 # The Daily Chronicle 🗞️
 
