@@ -1,3 +1,5 @@
+[![Live Demo](https://raw.githubusercontent.com/your-username/your-repo/main/assets/live-demo.svg)](https://daily-chronicle-navy.vercel.app/)
+
 # The Daily Chronicle 🗞️
 
 A premium, digital newspaper-style website built with strict **HTML, CSS, and Vanilla JavaScript**.
